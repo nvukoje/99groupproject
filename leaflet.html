@@ -45,6 +45,16 @@
       }).addTo(map);
 
     </script>
+    
+    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"
+    integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
+    crossorigin=""></script>
+    
+    <script>
+      const waterstations = L.esri.featureLayer({
+        url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/PWQMN_Stations/FeatureServer"
+      }).addTo(map);
+    </script>
 
   </body>
 
