@@ -31,4 +31,4 @@ This changed to:
 
 const map = L.map("map", {
         minZoom: 2
-      }).setView([43.8180, -79.5915], 15);
+      }).setView([43.7981, -79.5912], 14);
