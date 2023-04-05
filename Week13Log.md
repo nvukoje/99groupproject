@@ -51,7 +51,7 @@ Chlorides are dangerous when > 250 mg/L
 
 Used the template from https://developers.arcgis.com/esri-leaflet/query-and-edit/query-a-feature-layer-sql/#whats-next and substituted the feature layer along with tweaking some variable names and popup displays:
 
- L.Control.QueryControl = L.Control.extend({
+      L.Control.QueryControl = L.Control.extend({
         onAdd: function (map) {
           const whereClauses = [
             "Choose a WHERE clause...",
