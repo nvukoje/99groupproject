@@ -49,4 +49,63 @@ Nitrates are dangerous when > 10 mg/L
 Phosphates are dangerous when > 10 mg/L
 Chlorides are dangerous when > 250 mg/L 
 
-Used the template from https://developers.arcgis.com/esri-leaflet/query-and-edit/query-a-feature-layer-sql/#whats-next and substituted the feature layer along with tweaking some variable names and popup displays.
+Used the template from https://developers.arcgis.com/esri-leaflet/query-and-edit/query-a-feature-layer-sql/#whats-next and substituted the feature layer along with tweaking some variable names and popup displays:
+
+L.Control.QueryControl = L.Control.extend({
+        onAdd: function (map) {
+          const whereClauses = [
+            "Choose a WHERE clause...",
+            "CHLORIDE > 250",
+            "NITRATES > 10",
+            "PHOSPHORUS > 10"
+          ];
+
+          const select = L.DomUtil.create("select", "");
+          select.setAttribute("id", "whereClauseSelect");
+          select.setAttribute("style", "font-size: 16px;padding:4px 8px;");
+          whereClauses.forEach(function (whereClause) {
+            let option = L.DomUtil.create("option");
+            option.innerHTML = whereClause;
+            select.appendChild(option);
+          });
+          return select;
+
+        },
+
+        onRemove: function (map) {
+          // Nothing to do here
+        }
+      });
+
+      L.control.queryControl = function (opts) {
+        return new L.Control.QueryControl(opts);
+      };
+
+      L.control
+        .queryControl({
+          position: "topright"
+        })
+        .addTo(map);
+
+      const waterstations = L.esri
+        .featureLayer({
+          url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/0",
+          simplifyFactor: 0.5,
+          precision: 4,
+
+          where: "1 = 0"
+
+        })
+        .addTo(map);
+
+      const select = document.getElementById("whereClauseSelect");
+      select.addEventListener("change", () => {
+        if (select.value !== "") {
+          waterstations.setWhere(select.value);
+        }
+      });
+
+      waterstations.bindPopup(function (layer) {
+          return L.Util.template("<b>Chloride Danger Threshsold > 250 mg/L</b> Current Level: {CHLORIDE} mg/L<br><b>Nitrate Danger Threshold > 10 mg/L</b> Current Level: {NITRATES} mg/L</br><b>Phosphate Danger Threshold > 10 mg/L</b> Current Level: {PHOSPHORUS} mg/L", layer.feature.properties);
+      })
+
