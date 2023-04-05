@@ -41,7 +41,7 @@
 
       const map = L.map("map", {
         minZoom: 2
-      }).setView([43.7981, -79.5912], 13.50);
+      }).setView([43.7981, -79.5912], 13);
 
       L.esri.Vector.vectorBasemapLayer(basemapEnum, {
         apiKey: apiKey
@@ -51,8 +51,6 @@
         onAdd: function (map) {
           const whereClauses = [
             "Choose a WHERE clause...",
-            "STATION = 'A'",
-            "STATION = 'I'",
             "CHLORIDE > 250",
             "NITRATES > 10",
             "PHOSPHORUS > 10"
@@ -104,7 +102,7 @@
       });
 
       waterstations.bindPopup(function (layer) {
-          return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
+          return L.Util.template("<b>Chloride Danger Threshsold > 250 mg/L, Current Level:{CHLORIDE} mg/L</b><br>Nitrate Danger Threshold > 10 mg/L, Current Level:{NITRATES} mg/L</br><b>Phosphate Danger Threshold > 10 mg/L, Current Level: {PHOSPHORUS} mg/L</b>", layer.feature.properties);
       })
 
       const watercourse = L.esri.featureLayer({
