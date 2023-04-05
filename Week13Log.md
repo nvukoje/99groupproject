@@ -32,3 +32,13 @@ This changed to:
 const map = L.map("map", {
         minZoom: 2
       }).setView([43.7981, -79.5912], 14);
+
+Added the pop-up display for the phosphorus, nitrates and chloride found at the stations for each river using hte following code:
+
+waterstations.bindPopup(function (layer) {
+
+        return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
+
+      });
+
+This succesfully created the popups, but I now see that information of water quality is missing in the part of the map I zoomed into. 
