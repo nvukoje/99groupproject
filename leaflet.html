@@ -102,7 +102,7 @@
       });
 
       waterstations.bindPopup(function (layer) {
-          return L.Util.template("<b>Chloride Danger Threshsold > 250 mg/L, Current Level:{CHLORIDE} mg/L</b><br>Nitrate Danger Threshold > 10 mg/L, Current Level:{NITRATES} mg/L</br><b>Phosphate Danger Threshold > 10 mg/L, Current Level: {PHOSPHORUS} mg/L</b>", layer.feature.properties);
+          return L.Util.template("<b>Chloride Danger Threshsold > 250 mg/L</b> Current Level: {CHLORIDE} mg/L<br><b>Nitrate Danger Threshold > 10 mg/L</b> Current Level: {NITRATES} mg/L</br><b>Phosphate Danger Threshold > 10 mg/L</b> Current Level: {PHOSPHORUS} mg/L", layer.feature.properties);
       })
 
       const watercourse = L.esri.featureLayer({
