@@ -8,11 +8,11 @@ The second item contained the watercourses from the same server with a different
 
 Using the html page I made on github, I incorporated these feature layers into the vector basemap using Leaflet:
 
-const waterstations = L.esri.featureLayer({
+    const waterstations = L.esri.featureLayer({
         url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/0"
       }).addTo(map); 
 
-const watercourse = L.esri.featureLayer({
+    const watercourse = L.esri.featureLayer({
         url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/2"
       }).addTo(map);
 
@@ -23,19 +23,19 @@ The intracacies of incorporating the vector base map variable along with using t
 
 Following last weeks discussion with Shawn, I updated the base map variable to zoom in on an area. This was done in the following:
 
-const map = L.map("map", {
+    const map = L.map("map", {
         minZoom: 2
       }).setView([25, -30], 2);
 
 This changed to:
 
-const map = L.map("map", {
+    const map = L.map("map", {
         minZoom: 2
       }).setView([43.7981, -79.5912], 14);
 
 Added the pop-up display for the phosphorus, nitrates and chloride found at the stations for each river using hte following code:
 
-waterstations.bindPopup(function (layer) {
+    waterstations.bindPopup(function (layer) {
 
         return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
 
@@ -51,7 +51,8 @@ Chlorides are dangerous when > 250 mg/L
 
 Used the template from https://developers.arcgis.com/esri-leaflet/query-and-edit/query-a-feature-layer-sql/#whats-next and substituted the feature layer along with tweaking some variable names and popup displays:
 
-      L.Control.QueryControl = L.Control.extend({
+
+    L.Control.QueryControl = L.Control.extend({
         onAdd: function (map) {
           const whereClauses = [
             "Choose a WHERE clause...",
