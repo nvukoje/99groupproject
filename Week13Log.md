@@ -43,8 +43,10 @@ waterstations.bindPopup(function (layer) {
 
 This succesfully created the popups, but I now see that information of water quality is missing in the part of the map I zoomed into.
 
-Decided to input a query with the popups into the display to show active or inactive stations, and macronutrient levels that are hazardous, which are:
+Decided to input a query with the popups into the display to show macronutrient levels that are hazardous, which are:
 
 Nitrates are dangerous when > 10 mg/L
 Phosphates are dangerous when > 10 mg/L
 Chlorides are dangerous when > 250 mg/L 
+
+Used the template from https://developers.arcgis.com/esri-leaflet/query-and-edit/query-a-feature-layer-sql/#whats-next and substituted the feature layer along with tweaking some variable names and popup displays.
