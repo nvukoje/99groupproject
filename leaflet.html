@@ -47,15 +47,65 @@
         apiKey: apiKey
       }).addTo(map);
 
-      const waterstations = L.esri.featureLayer({
-        url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/0"
-      }).addTo(map);
+      L.Control.QueryControl = L.Control.extend({
+        onAdd: function (map) {
+          const whereClauses = [
+            "Choose a WHERE clause...",
+            "STATION = 'A'",
+            "STATION = 'I'",
+            "CHLORIDE > 250",
+            "NITRATES > 10",
+            "PHOSPHORUS > 10"
+          ];
+
+          const select = L.DomUtil.create("select", "");
+          select.setAttribute("id", "whereClauseSelect");
+          select.setAttribute("style", "font-size: 16px;padding:4px 8px;");
+          whereClauses.forEach(function (whereClause) {
+            let option = L.DomUtil.create("option");
+            option.innerHTML = whereClause;
+            select.appendChild(option);
+          });
+          return select;
+
+        },
+
+        onRemove: function (map) {
+          // Nothing to do here
+        }
+      });
+
+      L.control.queryControl = function (opts) {
+        return new L.Control.QueryControl(opts);
+      };
+
+      L.control
+        .queryControl({
+          position: "topright"
+        })
+        .addTo(map);
+
+      const waterstations = L.esri
+        .featureLayer({
+          url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/0",
+          simplifyFactor: 0.5,
+          precision: 4,
+
+          where: "1 = 0"
+
+        })
+        .addTo(map);
+
+      const select = document.getElementById("whereClauseSelect");
+      select.addEventListener("change", () => {
+        if (select.value !== "") {
+          waterstations.setWhere(select.value);
+        }
+      });
 
       waterstations.bindPopup(function (layer) {
-
-        return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
-
-      });
+          return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
+      })
 
       const watercourse = L.esri.featureLayer({
         url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/2"
