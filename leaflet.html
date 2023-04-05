@@ -51,6 +51,12 @@
         url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/0"
       }).addTo(map);
 
+      waterstations.bindPopup(function (layer) {
+
+        return L.Util.template("<b>{CHLORIDE}</b><br>{NITRATES}</br><b>{PHOSPHORUS}</b>", layer.feature.properties);
+
+      });
+
       const watercourse = L.esri.featureLayer({
         url: "https://ws.lioservices.lrc.gov.on.ca/arcgis2/rest/services/MOE/PWQMN/MapServer/2"
       }).addTo(map);
