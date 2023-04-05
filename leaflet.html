@@ -13,11 +13,25 @@
     <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"
     integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
     crossorigin=""></script>
-    <style src="leaflet.css"></style>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #323232;
+      }
+    </style>
   </head>
 
   <body>
-    
     <div id="map"></div>
 
     <script>
