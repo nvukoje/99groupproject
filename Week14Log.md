@@ -1,2 +1,6 @@
 # Week 14 log
-Group Assignment Delivery and Final Touches to Current GIS Web App
+Group Assignment Delivery and Final Touches to Current GIS Web App.
+
+# Begin attempting to add to watercourse line layer
+Following Shawns advice, I clipped a small portion of the watercourse layer (over 2 million records) and tried to snap the point data stations that have the water quality information to it.
+However a lot of the stations have little to no data included into it, so unfortunately the attempt to color code water quality on the watercourse line data will not work (need better data).
