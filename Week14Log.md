@@ -8,4 +8,5 @@ However a lot of the stations have little to no data included into it, so unfort
 # Begin adding to the built website showcasing Web 6 solution
 Begin building upon the webpage the Yingjia created and hosted on her github, will start by linking the websites code to my IDE (Git clone).
 
-After the repository was cloned, I began updating some html for a better presentation of our website (changing header, adding deatils to main index html).
+After the repository was cloned, I began updating some html for a better presentation of our website (changing header, adding deatils to index html).
+I also updated the template and added the web map whose current solution is part of our problem statement. I uploaded that photo onto index.html.
