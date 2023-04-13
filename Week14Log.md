@@ -13,7 +13,7 @@ I also updated the template and added the web map whose current solution is part
 
 The code included:
 
-<!-- <div class="row">
+<div class="row">
   <div class="main">
     <h2>Ontario Water Quality Map Problem Statement</h2>
     <h3>The Ideal Solution</h3>
@@ -27,9 +27,9 @@ The code included:
     <h3>The Technology Explored</h3>
     <p>ArcGIS Developers, Esri Leaflet, ArcGIS Dashboard, ArcGIS Server and ArcGIS Online</p>
   </div>
-</div> -->
+</div>
 
-<!-- <div class="main">
+<div class="main">
   <h2>Our Methods of Providing a Better Web Map</h2>
   <p>The following methods demonstrated on this page will show our processes and the approaches we took, along with any failings or successes we had towards our solution</p>
   <hr></hr>
@@ -74,11 +74,11 @@ The code included:
     that can enable a consistent symbology within the watercourse. More improvements can be made upon this solution such as imrpoving the topological rules of the watercourse feature layer, and have the popups from the stations contain more information for specific use cases (rather then just
     for algae bloom monitoring).
   </p>
-</div> -->
+</div>
 
 I created more content on the website adding new CSS for the images that I imported into the repository. The new CSS included:
 
-<!-- .center {
+.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -88,7 +88,7 @@ I created more content on the website adding new CSS for the images that I impor
   border-width: 2px;
 } -->
 
-<!-- .center1 {
+.center1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -96,5 +96,5 @@ I created more content on the website adding new CSS for the images that I impor
   border: black;
   border-style: solid;
   border-width: 2px;
-} -->
+}
 
