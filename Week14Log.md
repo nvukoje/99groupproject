@@ -76,7 +76,29 @@ The code included:
   </p>
 </div>
 
+<div class="main">
+  <h2>The Web GIS Solutions</h2>
+  <h3>Each of our team members have constructed a solution to enable easier web GIS usage to see water quality within Ontario watercourses. The team has created three solutions in all that can help the end user assess whether the water in the river is safe or not.</h3>
+</div>
+
+<hr>
+
+<div class="main">
+  <h2>The Esri Leaflet Solution</h2>
+  <h3>The following images below show a web solution using Esri Leaflet's Plugin and a Javascript API Key to enable the end user to conveniently check water safety by using a query and clicking on readings showing a popup of the dangerous Chloride, Nitrate and Phosphate levels.</h3>
+</div>
+
+<h3 class="main">This image shows the web solution before selecting the query:</h3>
+<img src="NVukojeMapSolution.jpg" alt="FirstStage" class="center1">
+
+<h3 class="main">This next image shows the stations when the query is selected, and after clicking on a station, shows the water quality of that river:</h3>
+<img src="NVukojeMapSolution1.jpg" alt="SecondStage" class="center1">
+
+<hr>
+
 I created more content on the website adding new CSS for the images that I imported into the repository. The new CSS included:
+
+The CSS that I created is below:
 
 .center {
   display: block;
