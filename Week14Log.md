@@ -98,8 +98,6 @@ The code included:
 
 I created more content on the website adding new CSS for the images that I imported into the repository. The new CSS included:
 
-The CSS that I created is below:
-
 .center {
   display: block;
   margin-left: auto;
